@@ -1,7 +1,6 @@
 package com.flyeralarm.tools.tvi10gen.model;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -9,7 +8,7 @@ import java.util.List;
  */
 public class Tvi10Stip {
 
-    private final static List<Patch> patches = initStrip();
+    private final static Patch[] patches = initStrip();
 
     /**
      * Private constructor.
@@ -21,7 +20,7 @@ public class Tvi10Stip {
      * Return list of patches.
      * @return List of patches.
      */
-    public static List<Patch> getPatches() {
+    public static Patch[] getPatches() {
         return patches;
     }
 
@@ -29,7 +28,7 @@ public class Tvi10Stip {
      * Initializes the TVI 10 Strip
      * @return The TVI panels as List.
      */
-    private static List<Patch> initStrip() {
+    private static Patch[] initStrip() {
         List<Patch> patches = new ArrayList<>(45);
 
         patches.add(new Patch(100, 100, 100, 0));
@@ -78,6 +77,6 @@ public class Tvi10Stip {
         patches.add(new Patch(0, 0, 0, 10));
         patches.add(new Patch(100, 0, 0, 0));
 
-        return Collections.unmodifiableList(patches);
+        return patches.toArray(new Patch[]{});
     }
 }

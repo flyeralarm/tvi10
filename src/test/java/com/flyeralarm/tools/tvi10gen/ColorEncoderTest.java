@@ -35,7 +35,7 @@ public class ColorEncoderTest {
         ColorEncoder encoder = new ColorEncoder();
 
         // act
-        for(long i = 0; i < 25000; i ++) {
+        for(long i = 0; i < 50000; i ++) {
             Patch[] result = encoder.encode(i);
             System.out.println(Arrays.toString(result) + " = " + i);
         }

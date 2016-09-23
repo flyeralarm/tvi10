@@ -25,7 +25,7 @@ public class ColorEncoder {
      * @return List of encoded patches..
      */
     public Patch[] encode(long value) {
-        return radix(value, Tvi10Stip.getPatches().toArray(new Patch[]{}));
+        return radix(value, Tvi10Stip.getPatches());
     }
 
     /**

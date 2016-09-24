@@ -6,14 +6,14 @@ import java.util.List;
 /**
  * Represents a TVI 10 Strip.
  */
-public class Tvi10Stip {
+public class Tvi10Strip {
 
     private final static Patch[] patches = initStrip();
 
     /**
      * Private constructor.
      */
-    private Tvi10Stip() {
+    private Tvi10Strip() {
     }
 
     /**

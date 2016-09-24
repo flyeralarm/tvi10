@@ -1,7 +1,7 @@
 package net.ricebean.tools.tvi10.lib;
 
 import net.ricebean.tools.tvi10.lib.model.Patch;
-import net.ricebean.tools.tvi10.lib.model.Tvi10Stip;
+import net.ricebean.tools.tvi10.lib.model.Tvi10Strip;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,12 +11,12 @@ import java.util.List;
 /**
  * Encodes a number to a color patches sequence.
  */
-public class ColorEncoder {
+class ColorEncoder {
 
     /**
      * Default constructor.
      */
-    public ColorEncoder() {
+    ColorEncoder() {
     }
 
     /**
@@ -24,8 +24,8 @@ public class ColorEncoder {
      * @param value Value to be encoded.
      * @return List of encoded patches..
      */
-    public Patch[] encode(long value) {
-        return radix(value, Tvi10Stip.getPatches());
+    Patch[] encode(long value) {
+        return radix(value, Tvi10Strip.getPatches());
     }
 
     /**

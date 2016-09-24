@@ -1,9 +1,11 @@
-
 subprojects {
     apply plugin: 'java'
 
+
     group = 'net.ricebean.tvi10'
     version = '1.0'
+    description = "A tvi generator."
+
 
     repositories {
         jcenter()
@@ -19,11 +21,36 @@ project(':cli') {
         compile "commons-cli:commons-cli:1.3.1"
         compile project(':lib')
     }
+
+    jar {
+        archiveName 'tvi10cli.jar'
+
+        from {
+            (configurations.runtime).collect {
+                it.isDirectory() ? it : zipTree(it)
+            }
+        }
+        manifest {
+
+            attributes(
+                    "Implementation-Title": project.name,
+                    "Implementation-Version": version,
+                    "Main-Class": "net.ricebean.tools.tvi10.cli.App",
+            )
+        }
+    }
 }
 
 project(':lib') {
     dependencies {
-        compile 'com.lowagie:itext:2.1.7'
+        compile ('com.lowagie:itext:2.1.7') {
+            exclude group: 'org.bouncycastle', module: 'bcmail-jdk14'
+            exclude group: 'bouncycastle', module: 'bcmail-jdk14'
+            exclude group: 'org.bouncycastle', module: 'bctsp-jdk14'
+            exclude group: 'bouncycastle', module: 'bcprov-jdk14'
+        }
         compile 'commons-io:commons-io:2.5'
     }
 }
+
+

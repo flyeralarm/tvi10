@@ -18,9 +18,19 @@ public class StripBuilder {
      * @param targetFile The target file.
      */
     public static void createTvi10Strip(final long value, File targetFile) throws IOException, DocumentException {
+        createTvi10Strip(value, targetFile, "ricebean.net");
+    }
+
+    /**
+     * Creates a TVI 10 Strip plus code.
+     * @param value The value to be encoded.
+     * @param targetFile The target file.
+     * @param companyName The companies name.
+     */
+    public static void createTvi10Strip(final long value, File targetFile, String companyName) throws IOException, DocumentException {
         Patch[] code = new ColorEncoder().encode(value);
 
         Tvi10Builder tvi10Builder = new Tvi10Builder();
-        tvi10Builder.build(Tvi10Strip.getPatches(), code, Long.toString(value), targetFile);
+        tvi10Builder.build(Tvi10Strip.getPatches(), code, Long.toString(value), targetFile, companyName);
     }
 }

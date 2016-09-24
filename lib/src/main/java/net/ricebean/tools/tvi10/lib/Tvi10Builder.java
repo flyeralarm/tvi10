@@ -56,7 +56,7 @@ class Tvi10Builder {
      * @param codeValue  The code as String.
      * @param targetFile The file where the PDF has to be written.
      */
-    void build(Patch[] targets, Patch[] code, String codeValue, File targetFile) throws IOException, DocumentException {
+    void build(Patch[] targets, Patch[] code, String codeValue, File targetFile, String companyName) throws IOException, DocumentException {
         float stripHeight = PATCH_HEIGHT + BORDER_BOTTOM + BORDER_TOP;
         float stripWidth = 0;
 
@@ -70,10 +70,10 @@ class Tvi10Builder {
 
         // draw target part
         tplParts.add(drawStart(cb));
-        tplParts.add(drawTarget(targets, cb));
+        tplParts.add(drawTarget(targets, cb, companyName));
         tplParts.add(drawCode(code, codeValue, cb));
         tplParts.add(drawStop(cb));
-        tplParts.add(drawSplash(cb));
+        tplParts.add(drawSplash(cb, companyName));
 
         // create final strip
         for (PdfTemplate tplPart : tplParts) {
@@ -107,7 +107,7 @@ class Tvi10Builder {
      * @param cb The PdfContentByte.
      * @return The PdfTemplate containing the splash part.
      */
-    private PdfTemplate drawSplash(PdfContentByte cb) {
+    private PdfTemplate drawSplash(PdfContentByte cb, String companyName) {
         float stripWidth = mm2dtp(25);
         float stripHeight = PATCH_HEIGHT + BORDER_BOTTOM + BORDER_TOP;
 
@@ -120,7 +120,7 @@ class Tvi10Builder {
         tplSplash.setFontAndSize(fontBold, 6);
         tplSplash.showTextAligned(
                 PdfContentByte.ALIGN_LEFT,
-                "ricebean.net tvi 10",
+                companyName + " tvi 10",
                 mm2dtp(2),
                 refLine,
                 0
@@ -284,7 +284,7 @@ class Tvi10Builder {
      * @param cb      The PdfContentByte.
      * @return The PdfTemplate containing the target part
      */
-    private PdfTemplate drawTarget(Patch[] targets, PdfContentByte cb) throws IOException, DocumentException {
+    private PdfTemplate drawTarget(Patch[] targets, PdfContentByte cb, String companyName) throws IOException, DocumentException {
         List<Patch> lstTargets = new ArrayList<>(Arrays.asList(targets));
         lstTargets.add(0, new Patch(0, 0, 0, 0));
         lstTargets.add(new Patch(0, 0, 0, 0));
@@ -342,7 +342,7 @@ class Tvi10Builder {
         tplTarget.stroke();
 
         // strip name
-        String name = "ricebean.net tvi 10 (v 1.0)  •  ";
+        String name = companyName + " tvi 10 (v 1.0)  •  ";
 
         tplTarget.beginText();
         tplTarget.setFontAndSize(fontBold, FONT_SIZE);

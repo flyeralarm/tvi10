@@ -17,6 +17,8 @@ public class App {
 
     private static final String OPT_HELP = "help";
 
+    private static final String OPT_NAME = "companyName";
+
     /**
      * Applications main entrance point
      * @param args The applications command arguments.
@@ -41,7 +43,13 @@ public class App {
             File file = Paths.get(cmd.getArgList().get(0)).toFile();
 
             long value = Long.parseLong(cmd.getOptionValue(OPT_CODE));
-            StripBuilder.createTvi10Strip(value, file);
+
+            if(cmd.hasOption(OPT_NAME)) {
+                StripBuilder.createTvi10Strip(value, file, cmd.getOptionValue(OPT_NAME));
+
+            } else{
+                StripBuilder.createTvi10Strip(value, file);
+            }
 
             System.out.println("Creation successful.");
         }
@@ -72,6 +80,14 @@ public class App {
                 .hasArg()
                 .desc("The code to be encoded.")
                 .required()
+                .build()
+        );
+
+        options.addOption(Option.builder("n")
+                .longOpt(OPT_NAME)
+                .argName("name")
+                .hasArg()
+                .desc("The companies name.")
                 .build()
         );
 

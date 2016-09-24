@@ -1,4 +1,4 @@
-package com.flyeralarm.tools.tvi10gen.model;
+package net.ricebean.tools.tvi10.lib.model;
 
 /**
  * Model object for a single color patch.

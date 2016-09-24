@@ -1,6 +1,6 @@
-package com.flyeralarm.tools.tvi10gen;
+package net.ricebean.tools.tvi10.lib;
 
-import com.flyeralarm.tools.tvi10gen.model.Patch;
+import net.ricebean.tools.tvi10.lib.model.Patch;
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.*;
 import org.apache.commons.io.IOUtils;
@@ -17,9 +17,9 @@ import java.util.List;
  */
 public class StripBuilder {
 
-    private static final String RES_FONT_REGULAR = "/com/flyeralarm/tools/tvi10gen/OpenSans-Regular.ttf";
+    private static final String RES_FONT_REGULAR = "/net/ricebean/tools/tvi10/lib/OpenSans-Regular.ttf";
 
-    private static final String RES_FONT_BOLD = "/com/flyeralarm/tools/tvi10gen/OpenSans-Bold.ttf";
+    private static final String RES_FONT_BOLD = "/net/ricebean/tools/tvi10/lib/OpenSans-Bold.ttf";
 
     private static final float FONT_SIZE = 4;
 
@@ -120,7 +120,7 @@ public class StripBuilder {
         tplSplash.setFontAndSize(fontBold, 6);
         tplSplash.showTextAligned(
                 PdfContentByte.ALIGN_LEFT,
-                "FLYERALARM tvi 10",
+                "ricebean.net tvi 10",
                 mm2dtp(2),
                 refLine,
                 0
@@ -342,7 +342,7 @@ public class StripBuilder {
         tplTarget.stroke();
 
         // strip name
-        String name = "FLYERALARM tvi 10 (v 1.0)  •  ";
+        String name = "ricebean.net tvi 10 (v 1.0)  •  ";
 
         tplTarget.beginText();
         tplTarget.setFontAndSize(fontBold, FONT_SIZE);

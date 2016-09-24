@@ -16,4 +16,5 @@ include 'api'
 include 'services:webservice'
 */
 
-rootProject.name = 'tvi10gen'
+rootProject.name = 'tvi10'
+include 'cli', 'lib'

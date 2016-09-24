@@ -1,4 +1,4 @@
-package com.flyeralarm.tools.tvi10gen.model;
+package net.ricebean.tools.tvi10.lib.model;
 
 import java.util.ArrayList;
 import java.util.List;

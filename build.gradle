@@ -1,13 +1,28 @@
-apply plugin: 'java'
 
+subprojects {
+    apply plugin: 'java'
 
-repositories {
-    jcenter()
+    group = 'net.ricebean.tvi10'
+    version = '1.0'
+
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        testCompile 'junit:junit:4.12'
+    }
 }
 
-dependencies {
-    compile 'com.lowagie:itext:2.1.7'
-    compile 'commons-io:commons-io:2.5'
+project(':cli') {
+    dependencies {
+        compile project(':lib')
+    }
+}
 
-    testCompile 'junit:junit:4.12'
+project(':lib') {
+    dependencies {
+        compile 'com.lowagie:itext:2.1.7'
+        compile 'commons-io:commons-io:2.5'
+    }
 }

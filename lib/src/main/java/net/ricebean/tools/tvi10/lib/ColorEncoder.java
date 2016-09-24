@@ -1,7 +1,7 @@
-package com.flyeralarm.tools.tvi10gen;
+package net.ricebean.tools.tvi10.lib;
 
-import com.flyeralarm.tools.tvi10gen.model.Patch;
-import com.flyeralarm.tools.tvi10gen.model.Tvi10Stip;
+import net.ricebean.tools.tvi10.lib.model.Patch;
+import net.ricebean.tools.tvi10.lib.model.Tvi10Stip;
 
 import java.util.ArrayList;
 import java.util.Arrays;

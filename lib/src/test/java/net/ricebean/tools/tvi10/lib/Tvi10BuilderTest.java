@@ -19,10 +19,11 @@ public class Tvi10BuilderTest {
         // arrange
         Tvi10Builder builder = new Tvi10Builder();
 
-        Patch[] code = new ColorEncoder().encode(3907916902L);
+        final long code = 3907916902L;
+        Patch[] codePatches = new ColorEncoder().encode(code);
 
         // act
-        builder.build(Tvi10Strip.getPatches(), code, "3907916902", file);
+        builder.build(Tvi10Strip.getPatches(), codePatches, Long.toString(code), file, "FLYERALARM");
 
         // assert
         System.out.println("File: " + file.getAbsolutePath());

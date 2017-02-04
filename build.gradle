@@ -112,7 +112,7 @@ project(':lib') {
 
                     developers {
                         developer {
-                            id 'meixi'
+                            id 'meixxi'
                             name 'Stefan Meissner'
                         }
                     }

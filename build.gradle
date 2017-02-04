@@ -1,10 +1,13 @@
+
 subprojects {
     apply plugin: 'java'
+    apply plugin: 'maven'
+    apply plugin: 'signing'
 
-
-    group = 'net.ricebean.tvi10'
+    group = 'net.ricebean.tools.colorstrip'
+    archivesBaseName = "SmartColorStrip"
     version = '1.0'
-    description = "A tvi generator."
+    description = "A smart color strip generator."
 
 
     repositories {
@@ -42,6 +45,7 @@ project(':cli') {
 }
 
 project(':lib') {
+
     dependencies {
         compile ('com.lowagie:itext:2.1.7') {
             exclude group: 'org.bouncycastle', module: 'bcmail-jdk14'
@@ -50,6 +54,71 @@ project(':lib') {
             exclude group: 'bouncycastle', module: 'bcprov-jdk14'
         }
         compile 'commons-io:commons-io:2.5'
+    }
+
+    signing {
+        sign configurations.archives
+    }
+
+    task javadocJar(type: Jar, dependsOn: javadoc) {
+        classifier = 'javadoc'
+        from tasks.javadoc.destinationDir
+    }
+
+    task sourcesJar(type: Jar) {
+        from sourceSets.main.allSource
+        classifier = 'sources'
+    }
+
+    artifacts {
+        archives jar
+
+        archives javadocJar
+        archives sourcesJar
+    }
+
+    uploadArchives {
+        repositories {
+            mavenDeployer {
+                beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+                repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                    authentication(userName: ossrhUsername, password: ossrhPassword)
+                }
+
+                snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                    authentication(userName: ossrhUsername, password: ossrhPassword)
+                }
+
+                pom.project {
+                    name 'SmartColorStrip'
+                    packaging 'jar'
+                    // optionally artifactId can be defined here
+                    description 'Generate smart color strips.'
+                    url 'https://github.com/ricebean-net/SmartColorStrip'
+
+                    scm {
+                        connection 'scm:git@github.com:ricebean-net/SmartColorStrip.git'
+                        developerConnection 'scm:git@github.com:ricebean-net/SmartColorStrip.git'
+                        url 'https://github.com/ricebean-net/SmartColorStrip.git'
+                    }
+
+                    licenses {
+                        license {
+                            name 'The Apache License, Version 2.0'
+                            url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        }
+                    }
+
+                    developers {
+                        developer {
+                            id 'meixi'
+                            name 'Stefan Meissner'
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

@@ -1,6 +1,6 @@
-package net.ricebean.tools.tvi10.lib;
+package net.ricebean.tools.colorstrip;
 
-import net.ricebean.tools.tvi10.lib.model.Patch;
+import net.ricebean.tools.colorstrip.model.Patch;
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.*;
 import org.apache.commons.io.IOUtils;
@@ -17,9 +17,9 @@ import java.util.List;
  */
 class Tvi10Builder {
 
-    private static final String RES_FONT_REGULAR = "/net/ricebean/tools/tvi10/lib/OpenSans-Regular.ttf";
+    private static final String RES_FONT_REGULAR = "/net/ricebean/tools/colorstrip/OpenSans-Regular.ttf";
 
-    private static final String RES_FONT_BOLD = "/net/ricebean/tools/tvi10/lib/OpenSans-Bold.ttf";
+    private static final String RES_FONT_BOLD = "/net/ricebean/tools/colorstrip/OpenSans-Bold.ttf";
 
     private static final float FONT_SIZE = 4;
 
@@ -55,6 +55,7 @@ class Tvi10Builder {
      * @param code       The code as list of Patch objects.
      * @param codeValue  The code as String.
      * @param targetFile The file where the PDF has to be written.
+     * @param companyName The companies name showing int the tvi 10 strip.
      */
     void build(Patch[] targets, Patch[] code, String codeValue, File targetFile, String companyName) throws IOException, DocumentException {
         float stripHeight = PATCH_HEIGHT + BORDER_BOTTOM + BORDER_TOP;

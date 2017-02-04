@@ -1,8 +1,8 @@
-package net.ricebean.tools.tvi10.lib;
+package net.ricebean.tools.colorstrip;
 
 import com.lowagie.text.DocumentException;
-import net.ricebean.tools.tvi10.lib.model.Patch;
-import net.ricebean.tools.tvi10.lib.model.Tvi10Strip;
+import net.ricebean.tools.colorstrip.model.Patch;
+import net.ricebean.tools.colorstrip.model.Tvi10Strip;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * Class for creating a PDF Strip.
  */
-public class StripBuilder {
+public class ColorStripFactory {
 
     /**
      * Creates a TVI 10 Strip plus code.

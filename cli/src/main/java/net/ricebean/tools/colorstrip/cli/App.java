@@ -1,7 +1,7 @@
-package net.ricebean.tools.tvi10.cli;
+package net.ricebean.tools.colorstrip.cli;
 
 import com.lowagie.text.DocumentException;
-import net.ricebean.tools.tvi10.lib.StripBuilder;
+import net.ricebean.tools.colorstrip.ColorStripFactory;
 import org.apache.commons.cli.*;
 
 import java.io.File;
@@ -45,10 +45,10 @@ public class App {
             long value = Long.parseLong(cmd.getOptionValue(OPT_CODE));
 
             if(cmd.hasOption(OPT_NAME)) {
-                StripBuilder.createTvi10Strip(value, file, cmd.getOptionValue(OPT_NAME));
+                ColorStripFactory.createTvi10Strip(value, file, cmd.getOptionValue(OPT_NAME));
 
             } else{
-                StripBuilder.createTvi10Strip(value, file);
+                ColorStripFactory.createTvi10Strip(value, file);
             }
 
             System.out.println("Creation successful.");

@@ -1,4 +1,4 @@
-package net.ricebean.tools.tvi10.lib.model;
+package net.ricebean.tools.colorstrip.model;
 
 import java.util.ArrayList;
 import java.util.List;

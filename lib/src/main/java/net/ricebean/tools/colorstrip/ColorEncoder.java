@@ -1,7 +1,7 @@
-package net.ricebean.tools.tvi10.lib;
+package net.ricebean.tools.colorstrip;
 
-import net.ricebean.tools.tvi10.lib.model.Patch;
-import net.ricebean.tools.tvi10.lib.model.Tvi10Strip;
+import net.ricebean.tools.colorstrip.model.Patch;
+import net.ricebean.tools.colorstrip.model.Tvi10Strip;
 
 import java.util.ArrayList;
 import java.util.Arrays;

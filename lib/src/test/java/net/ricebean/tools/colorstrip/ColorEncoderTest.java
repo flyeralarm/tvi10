@@ -1,6 +1,7 @@
-package net.ricebean.tools.tvi10.lib;
+package net.ricebean.tools.colorstrip;
 
-import net.ricebean.tools.tvi10.lib.model.Patch;
+import net.ricebean.tools.colorstrip.ColorEncoder;
+import net.ricebean.tools.colorstrip.model.Patch;
 import org.junit.Test;
 
 import java.lang.reflect.Method;

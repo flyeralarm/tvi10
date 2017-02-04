@@ -1,10 +1,11 @@
-package net.ricebean.tools.tvi10.lib;
+package net.ricebean.tools.colorstrip;
 
-import net.ricebean.tools.tvi10.lib.model.Patch;
-import net.ricebean.tools.tvi10.lib.model.Tvi10Strip;
+import net.ricebean.tools.colorstrip.model.Patch;
+import net.ricebean.tools.colorstrip.model.Tvi10Strip;
 import org.junit.Test;
 
 import java.io.File;
+import java.nio.file.Paths;
 
 /**
  * JUnit test case for StripBuilder
@@ -14,7 +15,9 @@ public class Tvi10BuilderTest {
     @Test
     public void buildTvi10() throws Exception {
 
-        File file = File.createTempFile("strip",".pdf");
+        File file = Paths.get(
+                "/Users/stefan/Desktop/", "tvi-10-" + System.currentTimeMillis() + ".pdf"
+        ).toFile();
 
         // arrange
         Tvi10Builder builder = new Tvi10Builder();
@@ -23,7 +26,7 @@ public class Tvi10BuilderTest {
         Patch[] codePatches = new ColorEncoder().encode(code);
 
         // act
-        builder.build(Tvi10Strip.getPatches(), codePatches, Long.toString(code), file, "FLYERALARM");
+        builder.build(Tvi10Strip.getPatches(), codePatches, Long.toString(code), file, "ricebean.net");
 
         // assert
         System.out.println("File: " + file.getAbsolutePath());

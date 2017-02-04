@@ -16,5 +16,5 @@ include 'api'
 include 'services:webservice'
 */
 
-rootProject.name = 'tvi10'
+rootProject.name = 'SmartColorStrip'
 include 'cli', 'lib'

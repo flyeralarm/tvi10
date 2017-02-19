@@ -1,5 +1,5 @@
 # Smart Color Strip
-Make your color strips smart by extending it with metadata. Smart Color Strips are particularily in Industry 4.0 environments increasingly important in order to tag color measurment series automatically with metadata like the job id etc. Using a Smart Color Stip, the color measurment plus the metadata can be catched on one shot as the metadata is encoded using additinal color fields. In the following a sample of such an TVI 10 Smart Color Strip. The same concept can be used for all other color strips and targets as well:
+Make your color strips smart by extending it with metadata. Smart Color Strips are particularily in Industry 4.0 environments increasingly important in order to tag color measurment series automatically with metadata like the job id etc. Using a Smart Color Stip, the color measurement plus the metadata can be catched on one shot as the metadata is encoded using additinal color fields. In the following a sample of such an TVI 10 Smart Color Strip. The same concept can be used for all other color strips and targets as well:
 
 ![A smart tvi10 color strip.](https://github.com/ricebean-net/SmartColorStrip/blob/master/docs/smart-color-strip.png?raw=true "A smart tvi10 color strip.")
 

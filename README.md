@@ -1,9 +1,14 @@
 # Smart Color Strip
-Make your color strips smart by extending it with metadata. Smart color strips are particularily in Industry 4.0 environments increasingly important in order to tag automatically color measurment series with metadata like the job id etc. Using the Smart Color Stip, the color measurment plus the metadata can be catched on one shot with all default measurement devices as the metadata encoded as color panels. In the following a sample of such an TVI 10 Smart Color Strip. The same concept can be used for all other color strips and targets as well:
+Make your color strips smart by extending it with metadata. Smart color strips are particularily in Industry 4.0 environments increasingly important in order to tag color measurment series automatically with metadata like the job id etc. Using a Smart Color Stip, the color measurment plus the metadata can be catched on one shot with most default measurement devices as the metadata encoded using additinal color fields. In the following a sample of such an TVI 10 Smart Color Strip. The same concept can be used for all other color strips and targets as well:
 
 ![A smart tvi10 color strip.](https://github.com/ricebean-net/SmartColorStrip/blob/master/docs/smart-color-strip.png?raw=true "A smart tvi10 color strip.")
 
 ## Functional Description
+The Smart Color Strip uses the panels of the orignal color strip in order to encode the metadata as color fields. In the sample above, the basis for the metadata encoding was the TVI 10 Color Strip. A TVI 10 Color Strip consists of 45 individual panels. Each color field in the original color strip has a specific value. The CMY Field on the left has the value "0" whereas the C100 Field on the right has the value "44".
+
+
+reference data is printe on the same sheet.
+
 Fist of all many thanks to Jan-Peter Homann, who was a great discussion partner for the development of the concept of smart color strips.
 Standard measurement devices.
 

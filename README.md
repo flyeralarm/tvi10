@@ -1,7 +1,12 @@
 # Smart Color Strip
-Fist of all many thanks to Jan-Peter Homann, who was a great discussion partner for the development of the concept of smart color strips. Smart color strips are particularily in Industry 4.0 environments increasingly important in order to tag color measurment series with additinal meta data like the job id etc. on one shot. Here one sample of such an TVI 10 Smart Color Strip. The same concept can be used for all other color strips and targets as well:
+Make your color strips smart by extending it with metadata. Smart color strips are particularily in Industry 4.0 environments increasingly important in order to tag automatically color measurment series with metadata like the job id etc. Using the Smart Color Stip, the color measurment plus the metadata can be catched on one shot with all default measurement devices as the metadata encoded as color panels. In the following a sample of such an TVI 10 Smart Color Strip. The same concept can be used for all other color strips and targets as well:
 
 ![A smart tvi10 color strip.](https://github.com/ricebean-net/SmartColorStrip/blob/master/docs/smart-color-strip.png?raw=true "A smart tvi10 color strip.")
+
+## Functional Description
+Fist of all many thanks to Jan-Peter Homann, who was a great discussion partner for the development of the concept of smart color strips.
+Standard measurement devices.
+
 
 ## Maven Dependencies
 The SmartColorStrip library is also available in the Central Maven Repository:

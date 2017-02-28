@@ -1,7 +1,7 @@
 package net.ricebean.tools.colorstrip;
 
 import net.ricebean.tools.colorstrip.model.Patch;
-import net.ricebean.tools.colorstrip.model.Tvi10Strip;
+import net.ricebean.tools.colorstrip.util.PatchGroup;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,7 +25,17 @@ class ColorEncoder {
      * @return List of encoded patches..
      */
     Patch[] encode(long value) {
-        return radix(value, Tvi10Strip.getPatches());
+        return radix(value, PatchGroup.tvi10());
+    }
+
+    /**
+     * Encodes a long value to a patch panel sequence.
+     * @param value Value to be encoded.
+     * @param patches List of patches being used for encoding.
+     * @return List of encoded patches.
+     */
+    Patch[] encode(long value, Patch[] patches) {
+        return radix(value, patches);
     }
 
     /**

@@ -83,6 +83,9 @@ project(':lib') {
                 beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
 
                 repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                    def ossrhUsername = "ddd"
+                    def ossrhPassword = "ddd"
+
                     authentication(userName: ossrhUsername, password: ossrhPassword)
                 }
 

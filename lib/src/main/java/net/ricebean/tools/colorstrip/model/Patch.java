@@ -39,31 +39,34 @@ public class Patch {
             name = "Paper";
 
         } else if(cyan > 0 && magenta == 0 && yellow == 0 && black == 0) {
-            name = "C " + cyan;
+            name = "c " + cyan;
 
         } else if(cyan == 0 && magenta > 0 && yellow == 0 && black == 0) {
-            name = "M " + magenta;
+            name = "m " + magenta;
 
         } else if(cyan == 0 && magenta == 0 && yellow > 0 && black == 0) {
-            name = "Y " + yellow;
+            name = "y " + yellow;
 
         } else if(cyan == 0 && magenta == 0 && yellow == 0 && black > 0) {
-            name = "K " + black;
+            name = "k " + black;
 
         } else if(cyan == 0 && magenta == 100 && yellow == 100 && black == 0) {
-            name = "M Y";
+            name = "my";
 
         } else if(cyan == 100 && magenta == 100 && yellow == 0 && black == 0) {
-            name = "C M";
+            name = "cm";
 
         } else if(cyan == 100 && magenta == 0 && yellow == 100 && black == 0) {
-            name = "C Y";
+            name = "cy";
 
         } else if(cyan == 100 && magenta == 100 && yellow == 100 && black == 0) {
-            name = "C M Y";
+            name = "cmy";
+
+        } else if(cyan == magenta && magenta == yellow && cyan > 0 && black == 0) {
+            name = "cmy " + cyan;
 
         } else {
-            name = "unknown";
+            name = "n.a.";
 
         }
 

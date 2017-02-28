@@ -25,7 +25,7 @@ public class ColorEncoderTest {
         Patch[] result = encoder.encode(value);
 
         // assert
-        assertEquals("Color Encoding is wrong.", "[Y 100, M 40, M 40, C 40, Y 30]", Arrays.toString(result));
+        assertEquals("Color Encoding is wrong.", "[y 100, m 40, m 40, c 40, y 30]", Arrays.toString(result));
     }
 
     @Test

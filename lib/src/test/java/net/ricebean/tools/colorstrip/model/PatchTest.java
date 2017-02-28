@@ -20,43 +20,49 @@ public class PatchTest {
         assertEquals("Paper", patch.getName());
 
         patch = new Patch(100,0,0,0);
-        assertEquals("C 100", patch.getName());
+        assertEquals("c 100", patch.getName());
 
         patch = new Patch(90,0,0,0);
-        assertEquals("C 90", patch.getName());
+        assertEquals("c 90", patch.getName());
 
         patch = new Patch(10,0,0,0);
-        assertEquals("C 10", patch.getName());
+        assertEquals("c 10", patch.getName());
 
         patch = new Patch(0,100,0,0);
-        assertEquals("M 100", patch.getName());
+        assertEquals("m 100", patch.getName());
 
         patch = new Patch(0,10,0,0);
-        assertEquals("M 10", patch.getName());
+        assertEquals("m 10", patch.getName());
 
         patch = new Patch(0,0,80,0);
-        assertEquals("Y 80", patch.getName());
+        assertEquals("y 80", patch.getName());
 
         patch = new Patch(0,0,0,40);
-        assertEquals("K 40", patch.getName());
+        assertEquals("k 40", patch.getName());
 
         patch = new Patch(100,100,0,0);
-        assertEquals("C M", patch.getName());
+        assertEquals("cm", patch.getName());
 
         patch = new Patch(100,0,100,0);
-        assertEquals("C Y", patch.getName());
+        assertEquals("cy", patch.getName());
 
         patch = new Patch(0,100,100,0);
-        assertEquals("M Y", patch.getName());
+        assertEquals("my", patch.getName());
 
         patch = new Patch(100,100,100,0);
-        assertEquals("C M Y", patch.getName());
+        assertEquals("cmy", patch.getName());
+
+        patch = new Patch(90,90,90,0);
+        assertEquals("cmy 90", patch.getName());
+
+        patch = new Patch(90,90,90,1);
+        assertEquals("n.a.", patch.getName());
 
         patch = new Patch(100,100,100,100);
-        assertEquals("unknown", patch.getName());
+        assertEquals("n.a.", patch.getName());
 
         patch = new Patch(100,88,0,0);
-        assertEquals("unknown", patch.getName());
+        assertEquals("n.a.", patch.getName());
     }
 
 }

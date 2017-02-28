@@ -58,7 +58,7 @@ ColorStripFactory.createGrayConMi1(4444444L, tvi10File)
 File grayConFile = Paths.get("/Users/stefan/desktop/grayCon-${System.currentTimeMillis()}.pdf").toFile()
 ColorStripFactory.createGrayConMi1(777777L, grayConFile)
 
-// Individual strip
+// Custom strip
 File customFile = Paths.get("/Users/stefan/desktop/custom-${System.currentTimeMillis()}.pdf").toFile()
 
 List<Patch> myPatchesList = new ArrayList<>(10);

@@ -36,7 +36,7 @@ import java.nio.file.Paths
 File targetFile = Paths.get("/Users/stefan/desktop/tvi10smart.pdf").toFile()
 ColorStripFactory.createTvi10Strip(463746374, targetFile)
 ```
-Here another, more complex code snippet which creates a tvi10, a GrayCon and a Custom strip:
+The following is another, more complex code snippet which creates a tvi10, a GrayCon and a custom strip:
 
 ```groovy
 import net.ricebean.tools.colorstrip.ColorStripBuilder
@@ -84,3 +84,7 @@ colorStripBuilder.setPatchWidth(4)
 colorStripBuilder.setPatchWidthSpacer(5)
 colorStripBuilder.build(customFile, 67887574854)
 ```
+Here is the result of the script above:
+* TVI 10 Strip
+* GrayCon Mi1 Strip
+* Custom Strip

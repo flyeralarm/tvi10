@@ -85,6 +85,6 @@ colorStripBuilder.setPatchWidthSpacer(5)
 colorStripBuilder.build(customFile, 67887574854)
 ```
 Here is the result of the script above:
-* TVI 10 Strip
-* GrayCon Mi1 Strip
-* Custom Strip
+* [TVI 10 Strip](https://github.com/ricebean-net/SmartColorStrip/blob/master/docs/tvi10-strip.pdf?raw=true)
+* [GrayCon Mi1 Strip](https://github.com/ricebean-net/SmartColorStrip/blob/master/docs/grayCon-strip.pdf?raw=true)
+* [Custom Strip](https://github.com/ricebean-net/SmartColorStrip/blob/master/docs/custom-strip.pdf?raw=true)

@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class ColorStripFactoryTest {
 
-    Path rootPath = Paths.get("/Users/stefan/Desktop/");
+    Path rootPath = Paths.get("/home/stefan/Desktop/");
 
     @Test
     public void genericStrip() throws Exception {

@@ -18,7 +18,7 @@ The SmartColorStrip library is also available in the Central Maven Repository:
 <dependency>
     <groupId>net.ricebean.tools.colorstrip</groupId>
     <artifactId>SmartColorStrip</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
 </dependency>
 ```
 
@@ -30,9 +30,61 @@ import net.ricebean.tools.colorstrip.ColorStripFactory
 import java.nio.file.Paths
 
 @Grapes(
-        @Grab(group='net.ricebean.tools.colorstrip', module='SmartColorStrip', version='1.0')
+        @Grab(group='net.ricebean.tools.colorstrip', module='SmartColorStrip', version='1.1')
 )
 
 File targetFile = Paths.get("/Users/stefan/desktop/tvi10smart.pdf").toFile()
 ColorStripFactory.createTvi10Strip(463746374, targetFile)
 ```
+The following is another, more complex code snippet which creates a tvi10, a GrayCon and a custom strip:
+
+```groovy
+import net.ricebean.tools.colorstrip.ColorStripBuilder
+import net.ricebean.tools.colorstrip.ColorStripFactory
+import net.ricebean.tools.colorstrip.model.Patch
+import net.ricebean.tools.colorstrip.util.PatchGroup
+
+import java.nio.file.Paths
+
+@Grapes(
+        @Grab(group='net.ricebean.tools.colorstrip', module='SmartColorStrip', version='1.1')
+)
+
+// tvi 10 strip with code
+File tvi10File = Paths.get("/Users/stefan/desktop/tvi10-${System.currentTimeMillis()}.pdf").toFile()
+ColorStripFactory.createGrayConMi1(4444444L, tvi10File)
+
+// GrayCon strip with code
+File grayConFile = Paths.get("/Users/stefan/desktop/grayCon-${System.currentTimeMillis()}.pdf").toFile()
+ColorStripFactory.createGrayConMi1(777777L, grayConFile)
+
+// Custom strip
+File customFile = Paths.get("/Users/stefan/desktop/custom-${System.currentTimeMillis()}.pdf").toFile()
+
+List<Patch> myPatchesList = new ArrayList<>(10);
+myPatchesList.add(new Patch(100, 70, 45, 0));
+myPatchesList.add(new Patch(0, 10, 44, 0));
+myPatchesList.add(new Patch(50, 0, 0, 70));
+myPatchesList.add(new Patch(0, 100, 100, 50));
+myPatchesList.add(new Patch(50, 50, 50, 0));
+myPatchesList.add(new Patch(100, 50, 0, 0));
+myPatchesList.add(new Patch(0, 0, 0, 50));
+myPatchesList.add(new Patch(100, 0, 50, 0));
+myPatchesList.add(new Patch(30, 0, 30, 0));
+myPatchesList.add(new Patch(100, 50, 50, 0));
+Patch[] myPatches =  myPatchesList.toArray();
+
+ColorStripBuilder colorStripBuilder = ColorStripFactory.newColorStripBuilder()
+colorStripBuilder.addPatchGroup("TVI10 Strip", PatchGroup.tvi10())
+colorStripBuilder.addPatchGroup("My Custom Patches", myPatches)
+
+colorStripBuilder.setTitle("My Strip")
+colorStripBuilder.setDescription("This is my custom Strip.")
+colorStripBuilder.setPatchWidth(4)
+colorStripBuilder.setPatchWidthSpacer(5)
+colorStripBuilder.build(customFile, 67887574854)
+```
+Here is the result of the script above:
+* [TVI 10 Strip](https://github.com/ricebean-net/SmartColorStrip/blob/master/docs/tvi10-strip.pdf?raw=true)
+* [GrayCon Mi1 Strip](https://github.com/ricebean-net/SmartColorStrip/blob/master/docs/grayCon-strip.pdf?raw=true)
+* [Custom Strip](https://github.com/ricebean-net/SmartColorStrip/blob/master/docs/custom-strip.pdf?raw=true)

@@ -30,7 +30,7 @@ public class ColorStripFactory {
      */
     public static void createTvi10Strip(final long code, File targetFile, String companyName) throws IOException, DocumentException {
         ColorStripBuilder colorStripBuilder = new ColorStripBuilderImpl();
-        colorStripBuilder.addPatchGroup("", PatchGroup.tvi10());
+        colorStripBuilder.addPatchGroup("ECI/bvdm TVI 10 i1", PatchGroup.tvi10());
         colorStripBuilder.setTitle(companyName + " TVI 10");
         colorStripBuilder.setDescription("compatible to ECI/bvdm TVI 10 i1");
         colorStripBuilder.build(targetFile, code);

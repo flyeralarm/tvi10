@@ -5,6 +5,7 @@ import net.ricebean.tools.colorstrip.util.PatchGroup;
 import org.junit.Test;
 
 import java.io.File;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,8 @@ import java.util.List;
  * JUnit test case for ColorStripBuilder.
  */
 public class ColorStripFactoryTest {
+
+    Path rootPath = Paths.get("/Users/stefan/Desktop/");
 
     @Test
     public void genericStrip() throws Exception {
@@ -33,9 +36,7 @@ public class ColorStripFactoryTest {
         patches.add(new Patch(0, 0, 20, 50));
         colorStripBuilder.addPatchGroup("FYERALARM Custom", patches.toArray(new Patch[]{}));
 
-        File file = Paths.get(
-                "/home/stefan/Desktop/", "strip-10-" + System.currentTimeMillis() + ".pdf"
-        ).toFile();
+        File file = rootPath.resolve( "generic-strip-" + System.currentTimeMillis() + ".pdf").toFile();
 
         // act
         colorStripBuilder.setPatchWidth(4);
@@ -56,9 +57,7 @@ public class ColorStripFactoryTest {
     public void tvi10Strip() throws Exception {
 
         // arrange
-        File file = Paths.get(
-                "/home/stefan/Desktop/", "tvi-10-" + System.currentTimeMillis() + ".pdf"
-        ).toFile();
+        File file = rootPath.resolve("tvi-10-" + System.currentTimeMillis() + ".pdf").toFile();
 
         // act
         ColorStripFactory.createTvi10Strip(12345678L, file);
@@ -71,9 +70,7 @@ public class ColorStripFactoryTest {
     public void grayConStrip() throws Exception {
 
         // arrange
-        File file = Paths.get(
-                "/home/stefan/Desktop/", "grayCon-" + System.currentTimeMillis() + ".pdf"
-        ).toFile();
+        File file = rootPath.resolve("grayCon-" + System.currentTimeMillis() + ".pdf").toFile();
 
         // act
         ColorStripFactory.createGrayConMi1(12345678L, file);

@@ -42,6 +42,12 @@ public interface ColorStripBuilder {
     void setPatchWidthSpacer(float patchWidthSpacer);
 
     /**
+     * Set the width of the start / stop patch in millimeter.
+     * @param patchWidthStartStop Start / stop patch width in millimeter.
+     */
+    void setPatchWidthStartStop(float patchWidthStartStop);
+
+    /**
      * Set the height of the patch in millimeter.
      * @param patchHeight The height of the patch in  millimeter.
      */

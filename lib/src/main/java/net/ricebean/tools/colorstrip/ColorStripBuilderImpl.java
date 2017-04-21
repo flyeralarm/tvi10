@@ -31,6 +31,8 @@ class ColorStripBuilderImpl implements ColorStripBuilder {
 
     private float patchWidthSpacer = mm2dtp(6);
 
+    private float patchWidthStartStop = mm2dtp(6);
+
     private float patchHeight = mm2dtp(6);
 
     private BaseFont fontRegular;
@@ -79,6 +81,11 @@ class ColorStripBuilderImpl implements ColorStripBuilder {
     @Override
     public void setPatchWidthSpacer(float patchWidthSpacer) {
         this.patchWidthSpacer = mm2dtp(patchWidthSpacer);
+    }
+
+    @Override
+    public void setPatchWidthStartStop(float patchWidthStartStop) {
+        this.patchWidthStartStop = mm2dtp(patchWidthStartStop);
     }
 
     @Override
@@ -141,14 +148,21 @@ class ColorStripBuilderImpl implements ColorStripBuilder {
         }
 
         // draw target part
+        int cnt = 0;
         tplParts.add(drawStart(cb));
 
         for (String name : patchGroups.keySet()) {
-            tplParts.add(drawSpacer(cb));
+            if(cnt == 0) {
+                tplParts.add(drawSpacer(cb, patchWidthStartStop));
+            } else if(patchWidthSpacer > 0) {
+                tplParts.add(drawSpacer(cb, patchWidthSpacer));
+            }
+
             tplParts.add(drawPatchGroup(cb, name, patchGroups.get(name)));
+            cnt ++;
         }
 
-        tplParts.add(drawSpacer(cb));
+        tplParts.add(drawSpacer(cb, patchWidthStartStop));
         tplParts.add(drawStop(cb));
         tplParts.add(drawSplash(cb));
 
@@ -327,8 +341,7 @@ class ColorStripBuilderImpl implements ColorStripBuilder {
         return tpl;
     }
 
-    private PdfTemplate drawSpacer(PdfContentByte cb) {
-        float stripWidth = patchWidthSpacer;
+    private PdfTemplate drawSpacer(PdfContentByte cb, float stripWidth) {
         float stripHeight = patchHeight + borderBottom + borderTop;
 
         PdfTemplate tpl = cb.createTemplate(stripWidth, stripHeight);
@@ -337,9 +350,9 @@ class ColorStripBuilderImpl implements ColorStripBuilder {
         tpl.setLineWidth(0.5f);
         tpl.setLineDash(1f, 1f);
         tpl.moveTo(0, borderBottom + 0.25f);
-        tpl.lineTo(patchWidthSpacer, borderBottom + 0.25f);
+        tpl.lineTo(stripWidth, borderBottom + 0.25f);
         tpl.moveTo(0, borderBottom + patchHeight - 0.25f);
-        tpl.lineTo(patchWidthSpacer, borderBottom + patchHeight - 0.25f);
+        tpl.lineTo(stripWidth, borderBottom + patchHeight - 0.25f);
         tpl.stroke();
 
 

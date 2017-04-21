@@ -41,7 +41,8 @@ public class ColorStripFactoryTest {
         colorStripBuilder.setPatchWidth(4);
         colorStripBuilder.setPatchHeight(10);
         colorStripBuilder.setFontSize(3);
-        colorStripBuilder.setPatchWidthSpacer(6);
+        colorStripBuilder.setPatchWidthStartStop(10);
+        colorStripBuilder.setPatchWidthSpacer(0);
         colorStripBuilder.setTitle("FLYERALRM GaryCon M für Lisas Masterarbeit");
         colorStripBuilder.setDescription("Compatible to ECI/bvdm GrayCon Mi1");
 
